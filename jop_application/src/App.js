@@ -1,12 +1,12 @@
 import React from'react'
-import ApplicationForm from './ApplicationForm'
+import ApplicationContainer from './ApplicationContainer'
 
 export default function App(props){
 
   return(
     <div>
       <h1>User Job Application </h1>
-      <ApplicationForm/>
+      <ApplicationContainer/>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
 export default function ApplicationForm(props){
+    const {formSubmission} = props
     const [id , setId] = useState(uuidv4())
     const [name , setName] = useState('')
     const [email ,setEmail] = useState('')
@@ -35,11 +36,12 @@ export default function ApplicationForm(props){
             id:id,
             name:name,
             email :email,
-            role:roles,
+            phone:number,
+            jobTitle:roles,
             experience:experience,
             skills:skills
         }
-        console.log(formData)
+        formSubmission(formData)
     }
 
     return(
