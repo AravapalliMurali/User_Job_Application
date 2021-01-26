@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
+import axios from 'axios'
 
 export default function ApplicationForm(props){
     const {formSubmission} = props
@@ -9,9 +10,9 @@ export default function ApplicationForm(props){
     const [number , setNumber] = useState('') 
     const [roles , setRoles] = useState('')
     const [experience , setExperience] = useState('')
-    const [skills , setSkills] = useState('')
+    const [skills , setSkills] = useState([])
 
-    const jobRole = ['Front Developer' , 'Node js Developer' , 'MERN Stack Developer' , 'Full stack Developer']
+    const jobRole = ['Front-End Developer' , 'Node.js Developer' , 'MEAN Stack Developer' , 'FULL Stack Developer']
 
     const handleChanges =(e)=>{
         const input  = e.target.name
@@ -33,13 +34,13 @@ export default function ApplicationForm(props){
     const handleSubmit = (e) =>{
         e.preventDefault()
         const formData = {
-            id:id,
             name:name,
             email :email,
             phone:number,
+            skills:skills,
             jobTitle:roles,
-            experience:experience,
-            skills:skills
+            experience:experience
+            
         }
         formSubmission(formData)
     }
