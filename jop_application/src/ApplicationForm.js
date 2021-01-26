@@ -1,10 +1,7 @@
 import React,{useState} from 'react'
-import {v4 as uuidv4} from 'uuid'
 import axios from 'axios'
 
 export default function ApplicationForm(props){
-    const {formSubmission} = props
-    const [id , setId] = useState(uuidv4())
     const [name , setName] = useState('')
     const [email ,setEmail] = useState('')
     const [number , setNumber] = useState('') 
@@ -13,6 +10,17 @@ export default function ApplicationForm(props){
     const [skills , setSkills] = useState([])
 
     const jobRole = ['Front-End Developer' , 'Node.js Developer' , 'MEAN Stack Developer' , 'FULL Stack Developer']
+
+    const formSubmission =(data) =>{
+        axios.post('http://dct-application-form.herokuapp.com/users/application-form' , data)
+            .then((response)=>{
+                console.log(response.data)
+                
+            })//sucess
+            .catch((err)=>{
+                alert(err.message)
+            })//error
+    }
 
     const handleChanges =(e)=>{
         const input  = e.target.name
