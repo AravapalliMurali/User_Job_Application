@@ -13,7 +13,6 @@ export default function TableData(props){
                 //setDetails(result)
                 alert(`
                 ${result.name} profile
-                Status : ${result.status}
                 Contact Number: ${result.phone} 
                 Email: ${result.email}
                 Skills : ${result.skills}
@@ -25,13 +24,11 @@ export default function TableData(props){
     const handleShortList = (id)=>{
         axios.put(`http://dct-application-form.herokuapp.com/users/application-form/update/${id}`, {status: "shortlisted"})
             .then((response)=>{
-                //console.log(response.data)
                 const newprop = {
                     id:id,
                     status: "shortlisted"
                 }
                 editStatus(newprop)
-                //console.log(newprop)
 
             })
     }
@@ -39,7 +36,6 @@ export default function TableData(props){
     const handleReject = (id) =>{
         axios.put(`http://dct-application-form.herokuapp.com/users/application-form/update/${id}`, {status: "rejected"})
             .then((response)=>{
-                //console.log(response.data)
                 const newprop = {
                     id:id,
                     status: "rejected"
